@@ -16,5 +16,16 @@ namespace ToDo.Controllers
         {
             return context.ToDos.ToList();
         }
+        
+        [HttpPost("/")]
+        public ToDoModel Post([FromBody] ToDoModel todo, 
+                            [FromServices] AppDbContext context)
+        {
+            context.ToDos.Add(todo);
+            context.SaveChanges();
+
+            return todo;
+        }
+
     }
 }
