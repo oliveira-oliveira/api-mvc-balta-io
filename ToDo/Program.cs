@@ -1,6 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using ToDo.Controllers;
 
-app.MapGet("/", () => "Hello World!");
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers(); // Adicionando os Controllers
+
+var app = builder.Build();
+app.MapControllers(); //mapeando os controllers;
 
 app.Run();
